@@ -51,6 +51,22 @@ ol {
 .logo-white {
   color: var(--header-background-color);
 }
+.active {
+  color: var(--accent-color);
+}
+
+.active::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-color);
+  border-radius: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  opacity: 1;
+}
 /*====================end HTML=========================*/
 /*====================HEADER===========================*/
 .main-header {
@@ -120,8 +136,8 @@ ol {
   line-height: 1.14;
   letter-spacing: 0.02em;
   color: var(--secondary-color);
-  padding-top: 34px;
-  padding-bottom: 34px;
+  padding-top: 32px;
+  padding-bottom: 32px;
   align-items: center;
   transition-property: color;
   transition-duration: 250ms;
@@ -146,6 +162,7 @@ ol {
   left: 0;
   bottom: 0;
   opacity: 0;
+  bottom: -1px;
   transition-property: color, opacity;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
@@ -650,3 +667,43 @@ ol {
   color: var(--footer-mail-tel);
 }
 /*====================end FOOTER===========================*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 250ms linear;
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 580px;
+  background-color: #ffffff;
+}
+
+.modal-close-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
