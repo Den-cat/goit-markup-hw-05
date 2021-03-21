@@ -196,10 +196,10 @@ ol {
   letter-spacing: 0.03em;
   color: var(--accent-color);
   margin-right: 93px;
-  animation-name: flip;
+  animation-name: backInLeft;
   animation-duration: 1000ms;
   animation-timing-function: linear;
-  animation-iteration-count: 50;
+  animation-iteration-count: 1;
 }
 .contact-icon {
   fill: var(--secondary-color);
@@ -327,9 +327,27 @@ ol {
   margin-top: -30px;
 }
 .we-do-list-item {
+  position: relative;
   flex-basis: calc(100% / 3 - 30px);
   margin-left: 30px;
   margin-top: 30px;
+}
+.what-we-do-overlay {
+  font-family: var(--main-font);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.14;
+  text-align: center;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  color: var(--header-background-color);
+  background-color: rgba(47, 48, 58, 0.8);
+  padding-top: 27px;
+  padding-bottom: 27px;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
 }
 /*====================end WHAT WE DO SECTION===========================*/
 /*====================OUR TEAM SECTION===========================*/
@@ -394,7 +412,7 @@ ol {
   height: 44px;
   border-radius: 50%;
   fill: var(--social-color);
-  transition-property: background-color;
+  transition-property: fill, background-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -438,6 +456,9 @@ ol {
   fill: var(--social-color);
   border: solid 1px var(--social-color);
   border-radius: 4px;
+  transition-property: fill, background-color;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-list-link:hover,
@@ -445,6 +466,7 @@ ol {
   fill: var(--accent-color);
   border-color: var(--accent-color);
   border-radius: 4px;
+  transition-property: fill, border-color;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -476,6 +498,9 @@ ol {
   border: none;
   padding: 6px 22px;
   border-radius: 4px;
+  transition-property: color, background-color, box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .portfolio-btn-container {
   display: flex;
@@ -512,12 +537,18 @@ ol {
   width: 370px;
   margin-left: 30px;
   margin-top: 30px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.12), 0px 0px 0px rgba(0, 0, 0, 0.06),
+    0px 0px 0px rgba(0, 0, 0, 0.16);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .pf-pj-list:hover,
 .pf-pj-list:focus {
   cursor: pointer;
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition-property: box-shadow;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -531,8 +562,6 @@ ol {
   background-color: var(--accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
-  transition-duration: 250ms;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .pf-project-title {
@@ -562,6 +591,17 @@ ol {
 .pf-pj-link:hover .overlay,
 .pf-pj-link:focus .overlay {
   transform: translateY(0%);
+  transition-property: box-shadow;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+.pf-pj-link:hover,
+.pf-pj-link:focus {
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
+.pf-pj-link {
+  text-decoration: none;
 }
 .overlay {
   font-family: var(--main-font);
@@ -575,7 +615,7 @@ ol {
   background-color: var(--overlay-color);
   color: var(--header-background-color);
   height: 100%;
-  overflow: scroll;
+  overflow: auto;
   padding-left: 24px;
   padding-right: 24px;
   padding-top: 63px;
